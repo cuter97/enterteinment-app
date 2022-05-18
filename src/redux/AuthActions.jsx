@@ -4,14 +4,15 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, up
 
 
 //REGISTER
-export const registerInitite = (email, password, displayName) => async (dispatch) => {
+// export const registerInitite = (email, password, displayName) => async (dispatch) => {
+export const registerInitite = (email, password) => async (dispatch) => {
     try {
         dispatch(
             { type: types.REGISTER_START, }
         )
         const { user } = await createUserWithEmailAndPassword(auth, email, password)
 
-        await updateProfile(user, { displayName })
+        // await updateProfile(user, { displayName })
 
         dispatch({
             type: types.REGISTER_SUCCESS,
@@ -20,7 +21,7 @@ export const registerInitite = (email, password, displayName) => async (dispatch
     } catch (error) {
         dispatch({
             type: types.REGISTER_ERROR,
-            payload: error.message,
+            payload: error.code,
         })
     }
 }
@@ -43,7 +44,7 @@ export const loginAuth = (email, password) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: types.REGISTER_ERROR,
-            payload: error.message,
+            payload: error.code,
         })
     }
 }
@@ -65,7 +66,7 @@ export const logoutAuth = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: types.LOGOUT_ERROR,
-            payload: error.message,
+            payload: error.code,
         })
     }
 }

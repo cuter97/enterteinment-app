@@ -1,72 +1,76 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { loginAuth } from '../redux/AuthActions'
 
+import { useForm } from 'react-hook-form'
+import { errorsFirebase } from '../utilities/errorsFirebase';
+import { formValidate } from '../utilities/formValidates';
+
+import FormError from '../components/FormError';
+
 const Login = () => {
 
-    const [state, setState] = useState({
-        email: "",
-        password: "",
-    })
+    const { register, handleSubmit, formState: { errors }, setError } = useForm()
+    const { required, patternEmail, minLength, validateTrim } = formValidate()
 
     const user = useSelector(store => store.user.currentUser)
+    const firebaseError = useSelector(store => store.user.error)
 
-    const dispatch = useDispatch();
-
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (user) 
-            navigate('/')
-        
-    }, [user, navigate])
 
-    const { email, password } = state
+    const onSubmit = data => { dispatch(loginAuth(data.email, data.password)) }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!email || !password)
-            return
-        dispatch(loginAuth(email, password))
-        setState({ email: "", password: "" })
-    }
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setState({ ...state, [name]: value })
-    }
+        const { code, message } = errorsFirebase(firebaseError)
+        useEffect(() => {
+            (user) && navigate('/')
 
-    return (
-        <>
-            <h2>LOGIN</h2>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <input
+            if (firebaseError !== null) 
+                setError(code, {message})
+            
+
+        }, [user, navigate, firebaseError])
+
+        return (
+            <>
+                <h2>LOGIN</h2>
+                <div>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <input
                         type="email"
                         placeholder='Email'
-                        name='email'
-                        onChange={handleChange}
-                        value={email}
-                        required
+                        {...register('email',
+                            {
+                                required, //nombre redundanet required: required
+                                pattern: patternEmail
+                            })}
                     />
-                    <input
+                        <FormError error={errors.email} />
+
+                        <input
                         type="password"
                         placeholder='Password'
-                        name='password'
-                        onChange={handleChange}
-                        value={password}
-                        required
+                        {...register('password',
+                            {
+                                minLength,
+                                validate: validateTrim,
+                            })}
                     />
-                    <button type='submit'>Sing In</button>
+                        <FormError error={errors.password} />
+
+                        <button type='submit'>Sing In</button>
+                    </form>
                     <hr />
                     <p>Don't have account?🤨</p>
                     <Link to='/register'>
                         Register
                     </Link>
-                </form>
-            </div>
-        </>
-    )
-}
+                </div>
+            </>
+        )
+    }
 
-export default Login
+    export default Login

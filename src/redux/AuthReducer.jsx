@@ -2,7 +2,7 @@ import * as types from "./AuthTypes"
 
 const initialState = {
     loading: false,
-    currentUser: null,
+    currentUser: false,
     error: null,
 }
 

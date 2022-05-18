@@ -23,13 +23,16 @@ function App() {
     useEffect(() => {
         onAuthStateChanged(auth, (authUser) => {
             if (authUser)
-                dispatch(setUser(authUser))
+            dispatch(setUser(authUser))
             else
-                dispatch(setUser(null))
+            dispatch(setUser(null))
         })
     }, [dispatch])
-
-
+    
+    if (user === false) {
+        return <p>Loading...</p>
+    }
+    
     return (
         <BrowserRouter>
             <Routes>
