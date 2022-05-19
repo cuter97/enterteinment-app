@@ -1,4 +1,4 @@
-import * as types from "./AuthTypes"
+import * as types from "../types/AuthTypes"
 
 const initialState = {
     loading: false,

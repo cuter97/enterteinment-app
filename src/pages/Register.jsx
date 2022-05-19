@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
-import { registerInitite } from '../redux/AuthActions';
+import { registerInitite } from '../redux/actions/AuthActions';
 import { useForm } from 'react-hook-form'
 import { errorsFirebase } from '../utilities/errorsFirebase';
 import { formValidate } from '../utilities/formValidates';

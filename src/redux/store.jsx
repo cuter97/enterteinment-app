@@ -1,11 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import userReducer from './AuthReducer';
+import userReducer from './reducer/AuthReducer';
+import dataReducer from './reducer/DataReducer';
 
 
 const rootReducer = combineReducers({
-    user: userReducer
+    user: userReducer,
+    data: dataReducer,
 })
 
 export default function generateStore() {

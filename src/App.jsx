@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react';
 import { auth } from './firebase/firebase-config'
 import { onAuthStateChanged } from 'firebase/auth';
-import { setUser } from './redux/AuthActions';
+import { setUser } from './redux/actions/AuthActions';
 
 
 function App() {

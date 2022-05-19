@@ -1,7 +1,7 @@
-import * as types from "./AuthTypes"
-import { auth } from '../firebase/firebase-config'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
-
+import * as types from "../types/AuthTypes"
+import { auth } from '../../firebase/firebase-config'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
+//uploadProfile importar si se usa
 
 //REGISTER
 // export const registerInitite = (email, password, displayName) => async (dispatch) => {
