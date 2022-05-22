@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//home syles
+html{ 
+    background-color: rgb(16, 20, 30); 
+}
+
+.title-data-container{
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.5px;
+
+    /* Pure White */
+
+    color: #FFFFFF;
+}
+@import 'navbar';
+@import 'home';

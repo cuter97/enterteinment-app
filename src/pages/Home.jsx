@@ -1,29 +1,23 @@
-// import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { logoutAuth } from '../redux/actions/AuthActions';
-import { useNavigate } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 
 import DataContainer from '../components/DataContainer'
+import Navbar from '../components/Navbar';
 
 const Home = () => {
 
-    const user = useSelector(store => store.user.currentUser)
-    const navigate = useNavigate()
-    
-    const dispatch = useDispatch();
-
-    const handleOut = () => {
-        if (user)
-            dispatch(logoutAuth())
-        navigate('/login')
-    }
+    const [serchParams] = useSearchParams();
+    const ruta = serchParams.get("category")
 
     return (
-        <div>
-            <div>Home</div>
-            <button onClick={handleOut}>Logout</button>
+        <div className='home-container'>
+            <Navbar />
             <div>
-                <DataContainer />
+                {
+                    (!ruta) && <p>aca va el componente trending</p>
+                }
+                <div>
+                    <DataContainer />
+                </div>
             </div>
         </div>
     )

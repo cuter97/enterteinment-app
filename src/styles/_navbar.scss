@@ -1,0 +1,51 @@
+.nav-container{
+    width: 96px;
+    height: 90vh;
+    margin: 32px;
+    background-color: rgb(22, 29, 47);
+    border-radius: 20px;
+    position: sticky;
+
+    .logo{
+        margin: calc(63.86px - 32px);
+    }
+    
+    .rutes-container{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        img{
+            width: 20px;
+            height: 20px;
+            margin: 20px 0;
+        }
+    }
+
+
+    .avatar-container{
+        text-align: center;
+        margin: 400px 0;
+
+        .avatar{
+            width: 40px;
+            height: 40px;
+            border: 1px solid #FFFFFF;
+            border-radius: 100%;
+        }
+
+        .list{
+            display: none;
+        }
+        .active{
+            display: block;
+            position: absolute;
+            left: 100px;
+            background-color: #FFFFFF;
+            width: 100px;
+            height: 80px;
+            top: 750px;
+        }
+    }
+}
