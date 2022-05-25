@@ -1,0 +1,60 @@
+.trending-container{
+    h2{
+        margin: 20px;
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: -0.5px;
+
+        /* Pure White */
+
+        color: #FFFFFF;
+    }
+    .card-trending-container{
+        margin: 20px;
+        display: flex;
+
+        .card-trending-content{
+            position: relative;
+            margin-right: 25px;
+            img{
+                width: 470px;
+                height: 230px;
+                border-radius: 8px;
+            }
+        
+            .text-trending-content{
+                position: absolute;
+                left: 24px;
+                bottom: 24px;
+                z-index: 1;
+                .footer-trending-one{
+                    font-family: 'Outfit', sans-serif;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 15px;
+                    line-height: 19px;
+                    color: #FFFFFF;
+        
+                    mix-blend-mode: normal;
+                    opacity: 0.75;
+                    margin: 7px 0;
+                    
+                    .span{
+                        margin: 0 10px;
+                    }
+                }
+                .footer-trending-two{
+                    font-family: 'Outfit', sans-serif;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 30px;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}

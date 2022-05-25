@@ -1,0 +1,70 @@
+.data-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    max-width: 100%;
+    margin: 5px;
+
+    .card-content{
+        margin: 15px;
+        position: relative;
+        .btnBookmark{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            position: absolute;
+            left: 80%;
+            bottom: 78%;
+            background: #10141E;
+            opacity: 0.7;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            .icon-icon-bookmark-empty {
+                color: #FFFFFF;
+                font-size: 20px;
+              }
+        }
+
+        img{
+            height: 174px;
+            width: 280px;
+            border-radius: 8px;
+        }
+        .text-content{
+            margin-top: 8px;
+            .icon-card{
+                width: 12px;
+                height: 12px;
+                border-radius: 0%;
+            }
+            .footer-one{
+                font-family: 'Outfit', sans-serif;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 13px;
+                line-height: 16px;
+                color: #FFFFFF;
+
+                mix-blend-mode: normal;
+                opacity: 0.75;
+                margin: 7px 0;
+
+                .span{
+                    margin: 0 10px;
+                }
+            }
+            .footer-two{
+                font-family: 'Outfit', sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 23px;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

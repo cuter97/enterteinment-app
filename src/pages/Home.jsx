@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom'
 
 import DataContainer from '../components/DataContainer'
 import Navbar from '../components/Navbar';
+import Trending from '../components/Trending';
 
 const Home = () => {
 
@@ -13,7 +14,7 @@ const Home = () => {
             <Navbar />
             <div>
                 {
-                    (!ruta) && <p>aca va el componente trending</p>
+                    (!ruta) && <Trending />
                 }
                 <div>
                     <DataContainer />

@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { getData } from '../redux/actions/DataActions'
+import DataCard from './DataCard'
 
 const DataContainer = () => {
     const dispatch = useDispatch()
@@ -35,11 +36,10 @@ const DataContainer = () => {
                     (!ruta) ? <p>Recomended for you</p> : <p>{ruta}</p>
                 }
             </div>
-            <div>
+            <div className='data-container'>
                 {
                     elementos.map((item, index) => (
-                        // <p key={index} > {item.title} </p>
-                        <DataContainer key={index} props={item} />
+                        <DataCard key={index} props={item} />
                     ))
                 }
             </div>

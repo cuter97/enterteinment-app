@@ -34,14 +34,16 @@ const Login = () => {
         }, [user, navigate, firebaseError])
 
         return (
-            <>
-                <h2>LOGIN</h2>
-                <div>
+            <div className='login-container'>
+                <span className='icon-logo logo-center'></span>
+                <div className='login-content'>
+                    <h2>Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <input
                         type="email"
-                        placeholder='Email'
+                        placeholder='Email Address'
+                        className='input-email'
                         {...register('email',
                             {
                                 required, //nombre redundanet required: required
@@ -53,6 +55,7 @@ const Login = () => {
                         <input
                         type="password"
                         placeholder='Password'
+                        className='input-password'
                         {...register('password',
                             {
                                 minLength,
@@ -61,15 +64,18 @@ const Login = () => {
                     />
                         <FormError error={errors.password} />
 
-                        <button type='submit'>Sing In</button>
+                        <button className='btn' type='submit'>Login to your account</button>
                     </form>
-                    <hr />
-                    <p>Don't have account?🤨</p>
-                    <Link to='/register'>
-                        Register
-                    </Link>
+                    <div className='sign-up'>
+                        <p>Don't have account?</p>
+                        <Link className='link-sing-up' to='/register'>
+                            Sign Up
+                        </Link>
+                    </div>
                 </div>
-            </>
+            </div>
+    
+            
         )
     }
 

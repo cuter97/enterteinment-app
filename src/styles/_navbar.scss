@@ -1,10 +1,11 @@
 .nav-container{
     width: 96px;
-    height: 90vh;
+    max-height: 860px;
     margin: 32px;
     background-color: rgb(22, 29, 47);
     border-radius: 20px;
     position: sticky;
+    top: 32px;
 
     .logo{
         margin: calc(63.86px - 32px);
@@ -15,10 +16,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        
-        img{
-            width: 20px;
-            height: 20px;
+        a{
+            text-decoration: none;
             margin: 20px 0;
         }
     }

@@ -1,8 +1,3 @@
-import Logo from '../icons/logo.svg'
-import HomeIcon from '../icons/icon-nav-home.svg'
-import MoviesIcon from '../icons/icon-nav-movies.svg'
-import TvIcon from '../icons/icon-nav-tv-series.svg'
-import BookmarkIcon from '../icons/icon-nav-bookmark.svg'
 import Avatar from '../icons/image-avatar.png'
 
 import React, { useState } from 'react'
@@ -29,21 +24,26 @@ const Navbar = () => {
 
     return (
         <div className='nav-container'>
-            <img className='logo' src={Logo} alt="logo" />
+            <div className='logo'>
+                <span className="icon-logo"></span>
+            </div>
 
             <div className='rutes-container'>
 
                 <Link to='/'>
-                    <img src={HomeIcon} alt="" />
+                    <span className="icon-icon-nav-home"></span>
                 </Link>
+
                 <Link to='/?category=Movie'>
-                    <img src={MoviesIcon} alt="" />
+                    <span className="icon-icon-nav-movies"></span>
                 </Link>
+
                 <Link to='/?category=TV Series'>
-                    <img src={TvIcon} alt="" />
+                    <span className="icon-icon-nav-tv-series"></span>
                 </Link>
+
                 <Link to='/bookmark'>
-                    <img src={BookmarkIcon} alt="" />
+                    <span className="icon-icon-nav-bookmark"></span>
                 </Link>
             
             </div>
