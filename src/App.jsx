@@ -11,10 +11,13 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { setUser } from './redux/actions/AuthActions';
 
 import './styles/style.scss'
+import { getData } from './redux/actions/DataActions';
 
 function App() {
     const dispatch = useDispatch();
     const user = useSelector(store => store.user.currentUser)
+    const loading = useSelector(store => store.data.loading)
+
 
     const Protected = () => {
         if (!user)
@@ -23,6 +26,8 @@ function App() {
     }
 
     useEffect(() => {
+        dispatch(getData())
+
         onAuthStateChanged(auth, (authUser) => {
             if (authUser)
             dispatch(setUser(authUser))
@@ -31,9 +36,11 @@ function App() {
         })
     }, [dispatch])
     
-    if (user === false) {
+    if (user === false) 
         return <p>Loading...</p>
-    }
+
+    if (loading === true) 
+        return <p>Loading...</p>
     
     return (
         <BrowserRouter>

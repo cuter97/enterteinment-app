@@ -1,25 +1,13 @@
-import { useEffect, useMemo } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
-import { getData } from '../redux/actions/DataActions'
 import DataCard from './DataCard'
 
 const DataContainer = () => {
-    const dispatch = useDispatch()
     const data = useSelector(store => store.data.array)
-    // const loading = useSelector(store => store.data.loading)
 
     const [serchParams] = useSearchParams();
     const ruta = serchParams.get("category")
-
-    useEffect(() => {
-        
-        dispatch(getData())
-        
-    }, [dispatch])
-    
-    // if (loading === true) 
-    //     return <p>Loading...</p>
     
     const elementos = useMemo(() => {
             

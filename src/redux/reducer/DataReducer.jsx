@@ -1,4 +1,5 @@
 import * as dataTypes from '../types/DataTypes'
+import * as BookmarkTypes from '../types/BookmarkTypes'
 
 const initialState = {
     loading: false,
@@ -16,6 +17,12 @@ const dataReducer = (state = initialState, action) => {
 
         case(dataTypes.DATA_ERROR):
             return {...state, loading: false, error: action.payload}
+        
+        case (BookmarkTypes.BOOKMARK_SUCCESS):
+            return {...state, array: action.payload}
+        
+        case(BookmarkTypes.BOOKMARK_ERROR):
+            return {...state, error: action.payload}    
 
         default:
             return state;

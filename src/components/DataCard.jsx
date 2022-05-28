@@ -1,21 +1,25 @@
 import { useState } from "react"
 import { FiBookmark } from 'react-icons/fi'
+import { useDispatch } from "react-redux"
+import { bookmarkAdd } from "../redux/actions/DataActions"
 
 const DataCard = ({props}) => {
 
-    const [bookmark, setBookmark] = useState(false)
-
+    const {title, thumbnail, year, rating, category, isBookmarked } = props
+    const [bookmark, setBookmark] = useState(isBookmarked)
+    const dispatch = useDispatch()
+    
     const bookmarkButton = () => {
         setBookmark(!bookmark)
+        dispatch(bookmarkAdd(title, bookmark))
     }
-
-    const {title, thumbnail, year, rating, category } = props
+    
     return (
         <div className="card-content">
             <img src={thumbnail.regular.large} alt="movie" />
             <div onClick={bookmarkButton} className='btnBookmark'>
                 {
-                    (bookmark === false) ? <FiBookmark className="icon-icon-bookmark-empty" /> : <span className="icon-icon-bookmark-full" />
+                    (isBookmarked === false) ? <FiBookmark className="icon-icon-bookmark-empty" /> : <span className="icon-icon-bookmark-full" />
                 }
             </div>
             <div className='text-content'>
