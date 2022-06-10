@@ -14,15 +14,11 @@ const Home = () => {
     const data = useSelector(store => store.data.array)
 
     const [search, setSearch] = useState('')
-    const [success, setSuccess] = useState([])
-    const [flag, setFlag] = useState(false)
+    const [success, setSuccess] = useState(false)
 
     const handleChange = (e) => {
         setSearch(e.target.value)
-        filtered(search)
-
-        if (success.length !== 0)
-            setFlag(true)
+        filtered(e.target.value)
     }
     
     const filtered = (value) => {
@@ -31,41 +27,45 @@ const Home = () => {
             if(element.title.toString().toLowerCase().includes(value.toLowerCase()))
                 return element
         })
-        setSuccess(result)
+        return (result.length !== 0) ? setSuccess(result) : setSuccess(true)
     }
 
     return (
         <div className='home-container'>
             <Navbar />
             <div>
-
-                <input type="text"
-                    value={search}
-                    onChange={handleChange}
-                    placeholder='Search for movies or TV series'
-                />
+                <div className='search'>
+                    <span className='icon-icon-search' />
+                    <input type="text"
+                        className='input-search'
+                        value={search}
+                        onChange={handleChange}
+                        placeholder='Search for movies or TV series'
+                    />
+                </div>
                 {
-                    (search !== '') ? ( 
-
-                        (flag !== false) ?
-                        success.map((item, index) => (
-                            <DataCard key={index} props={item} />
-                        ))
+                    (search !== '') 
+                        ? 
+                        (success !== true) ? 
+                        (
+                            <div className='data-container'>
+                                {                
+                                    success.map((item, index) => (
+                                        <DataCard key={index} props={item} />
+                                    ))
+                                }
+                            </div>
+                        ) : (<p>no existe ese valor</p>)//falta agreagar hacer un componente cuando no hay ningun resulatado
                         :
-                        <p>no existe ese valor</p>
-                            
-                    )
-                    :
-                    <div>
-                        {
-                            (!ruta) && <Trending />
-                        }
-                        <div>
+                        <div className='home-content'>
+                            {
+                                (!ruta) && <Trending />
+                            }
+        
                             <DataContainer />
+        
                         </div>
-                    </div>
                 }
-
 
             </div>
         </div>

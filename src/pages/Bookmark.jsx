@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react'
-import Navbar from '../components/Navbar'
-
 import { useSelector } from 'react-redux'
-import DataCard from '../components/DataCard'
 
+import Navbar from '../components/Navbar'
+import DataCard from '../components/DataCard'
 const Bookmark = () => {
 
     const data = useSelector(store => store.data.array)
@@ -20,13 +19,14 @@ const Bookmark = () => {
             <Navbar />
             <div>
                 <p>bookmark</p>
-                {
-                    bookmark.map((item, index) => (
-                        <DataCard key={index} props={item} />
-                    ))
-                }
+                <div className='data-container'>
+                    {
+                        bookmark.map((item, index) => (
+                            <DataCard key={index} props={item} />
+                        ))
+                    }
+                </div>
             </div>
-
         </div>
     )
 }

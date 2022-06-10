@@ -1,5 +1,34 @@
 .home-container{
     display: flex;
-    // width: 100%;
-    // margin: 0 auto;
+    justify-content: center;
+
+    .search{
+        display: flex;
+        margin: 32px 32px 10px 20px;
+
+        span{
+            font-size: 34px;
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            margin-right: 27px;
+        }
+        .input-search{
+            width: 100%;
+            height: 47px;
+            background: #10141E;
+
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 19px;
+
+            color: #FFFFFF;
+
+            mix-blend-mode: normal;
+            opacity: 0.5;
+            border: 0;
+        }
+    }
 }

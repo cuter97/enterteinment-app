@@ -32,6 +32,7 @@ const Login = () => {
             
 
         }, [user, navigate, firebaseError])
+        
 
         return (
             <div className='login-container'>
@@ -40,29 +41,40 @@ const Login = () => {
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
+                    <div className='error-pos'>
                         <input
-                        type="email"
-                        placeholder='Email Address'
-                        className='input-email'
-                        {...register('email',
-                            {
-                                required, //nombre redundanet required: required
-                                pattern: patternEmail
-                            })}
-                    />
-                        <FormError error={errors.email} />
+                            type="email"
+                            placeholder='Email Address'
+                            className='input-email'
+                            // autoComplete='off'
+                            {...register('email',
+                                {
+                                    required, //nombre redundanet required: required
+                                    pattern: patternEmail
+                                })}
+                        />
 
+                        <div className="errors">
+                            <FormError error={errors.email} />
+                        </div>
+                    </div>
+
+                    <div className='error-password'>
                         <input
-                        type="password"
-                        placeholder='Password'
-                        className='input-password'
-                        {...register('password',
-                            {
-                                minLength,
-                                validate: validateTrim,
-                            })}
-                    />
-                        <FormError error={errors.password} />
+                            type="password"
+                            placeholder='Password'
+                            className='input-password'
+                            {...register('password',
+                                {
+                                    minLength,
+                                    // validate: validateTrim,
+                                })}
+                        />
+
+                        <div className="errors">
+                            <FormError error={errors.password} />
+                        </div>
+                    </div>
 
                         <button className='btn' type='submit'>Login to your account</button>
                     </form>

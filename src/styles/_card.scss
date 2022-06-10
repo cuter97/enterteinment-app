@@ -1,22 +1,21 @@
 .data-container{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style: none;
-    max-width: 100%;
-    margin: 5px;
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-right: 30px;
 
     .card-content{
         margin: 15px;
         position: relative;
+
         .btnBookmark{
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10;
             position: absolute;
-            left: 80%;
-            bottom: 78%;
+            left: 82%;
+            bottom: 82%;
             background: #10141E;
             opacity: 0.7;
             width: 40px;
@@ -30,8 +29,7 @@
         }
 
         img{
-            height: 174px;
-            width: 280px;
+            width: 100%;
             border-radius: 8px;
         }
         .text-content{

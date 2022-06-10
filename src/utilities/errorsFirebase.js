@@ -4,33 +4,33 @@ export const errorsFirebase = (code) => {
         case "auth/email-already-in-use":
             return {
                 code: "email",
-                message: "Usuario ya registrado",
+                message: "User already registered",
             };
         case "auth/invalid-email":
             return {
                 code: "email",
-                message: "Formato email no válido",
+                message: "Invalid email format",
             };
         case "auth/user-not-found":
             return {
                 code: "email",
-                message: "Usuario no registrado",
+                message: "Unregistered user",
             };
         case "auth/wrong-password":
             return {
                 code: "password",
-                message: "Contraseña incorrecta",
+                message: "Incorrect password",
             };
         case "auth/too-many-requests":
             return {
                 code: "password",
-                message: "Has realizado muchas consultas, intente de nuevo mas tarde",
+                message: "You have made too many queries",
             };
 
         default:
             return {
                 code: "email",
-                message: "Ocurrio un error en el server",
+                message: "An error occurred on the server",
             };
     }
 }

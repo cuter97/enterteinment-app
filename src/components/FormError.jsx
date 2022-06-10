@@ -1,6 +1,6 @@
 const FormError = ({error}) => {
   return (
-    <div>{error && <p>{error.message}</p>}</div>
+    <div>{error && <p className="text">{error.message}</p>}</div>
   )
 }
 

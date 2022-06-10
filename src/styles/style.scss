@@ -1,3 +1,10 @@
+@import 'navbar';
+@import 'home';
+@import 'card';
+@import 'trendingCard';
+@import 'login';
+@import 'loading';
+@import 'register';
 * {
     margin: 0;
     padding: 0;
@@ -21,13 +28,10 @@ html{
 
     color: #FFFFFF;
 }
-@import 'navbar';
-@import 'home';
-@import 'card';
-@import 'trendingCard';
-@import 'login';
 
-
+// .prueba{
+//   color: red;
+// }
 
 
 // transform svg tv-series in icon
@@ -109,5 +113,3 @@ html{
     color: #5a698f;
     font-size: 20px;
   }
-
-  

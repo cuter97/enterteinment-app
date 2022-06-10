@@ -9,9 +9,10 @@ import { useEffect } from 'react';
 import { auth } from './firebase/firebase-config'
 import { onAuthStateChanged } from 'firebase/auth';
 import { setUser } from './redux/actions/AuthActions';
+import { getData } from './redux/actions/DataActions';
 
 import './styles/style.scss'
-import { getData } from './redux/actions/DataActions';
+import Loading from './components/Loading';
 
 function App() {
     const dispatch = useDispatch();
@@ -37,10 +38,9 @@ function App() {
     }, [dispatch])
     
     if (user === false) 
-        return <p>Loading...</p>
-
+        return <Loading />
     if (loading === true) 
-        return <p>Loading...</p>
+        return <Loading />
     
     return (
         <BrowserRouter>

@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "carousel-react-rcdev": "0.0.4",
     "firebase": "^9.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -18,7 +19,8 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

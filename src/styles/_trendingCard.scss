@@ -1,4 +1,8 @@
 .trending-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+
     h2{
         margin: 20px;
         font-family: 'Outfit', sans-serif;
@@ -7,14 +11,45 @@
         font-size: 32px;
         line-height: 40px;
         letter-spacing: -0.5px;
-
+        
         /* Pure White */
-
+        
         color: #FFFFFF;
+        max-width: 89vw;
     }
+    
     .card-trending-container{
-        margin: 20px;
-        display: flex;
+        margin: 15px;
+
+        .buttons{             
+            button {
+                color: #FFFFFF;
+                background-color: #ffffff00;
+                font-size: 55px; 
+            }
+            #prev, #next{
+                visibility: hidden;
+                content: none;
+            }
+            #prev::after{
+                content: "\2039";
+                visibility: visible;
+            }
+            #next::after{
+                content: "\203A";
+                visibility: visible;
+            }
+            .prev{
+                position: relative;
+                right: 70px;
+            }
+            .next{
+                position: relative;
+                right: 3%;
+            }
+            
+        }
+
 
         .card-trending-content{
             position: relative;
