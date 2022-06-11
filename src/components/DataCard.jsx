@@ -16,7 +16,13 @@ const DataCard = ({props}) => {
     
     return (
         <div className="card-content">
-            <img src={thumbnail.regular.large} alt="movie" />
+            <div className="play-container">
+                <div className="play">
+                    <span className="icon-icon-play" />
+                    <p>Play</p>
+                </div>
+                <img src={thumbnail.regular.large} alt="movie" />
+            </div>
             <div onClick={bookmarkButton} className='btnBookmark'>
                 {
                     (isBookmarked === false) ? <FiBookmark className="icon-icon-bookmark-empty" /> : <span className="icon-icon-bookmark-full" />

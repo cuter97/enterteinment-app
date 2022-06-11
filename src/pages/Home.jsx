@@ -1,34 +1,17 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import DataCard from '../components/DataCard';
 import DataContainer from '../components/DataContainer'
 import Navbar from '../components/Navbar';
+import NoSearch from '../components/NoSearch';
 import Trending from '../components/Trending';
+import { useSearch } from '../hooks/useSearch';
 
 const Home = () => {
 
+    const { search, success, handleChange } = useSearch()
+
     const [serchParams] = useSearchParams();
     const ruta = serchParams.get("category")
-
-    const data = useSelector(store => store.data.array)
-
-    const [search, setSearch] = useState('')
-    const [success, setSuccess] = useState(false)
-
-    const handleChange = (e) => {
-        setSearch(e.target.value)
-        filtered(e.target.value)
-    }
-    
-    const filtered = (value) => {
-
-        let result = data.filter(element => {
-            if(element.title.toString().toLowerCase().includes(value.toLowerCase()))
-                return element
-        })
-        return (result.length !== 0) ? setSuccess(result) : setSuccess(true)
-    }
 
     return (
         <div className='home-container'>
@@ -48,19 +31,24 @@ const Home = () => {
                         ? 
                         (success !== true) ? 
                         (
-                            <div className='data-container'>
-                                {                
-                                    success.map((item, index) => (
-                                        <DataCard key={index} props={item} />
-                                    ))
+                            <>
+                                <p className='found-search'>Found {success.length} result for '{search}' </p>
+                                <div className='data-container'>
+                                    {               
+                                        success.map((item, index) => (
+                                            <DataCard key={index} props={item} />
+                                        ))
+                                    }
+                                </div>
+                            </>
+                        ) : (<NoSearch />)
+                        :
+                        <div>
+                            <div>
+                                {
+                                    (!ruta) && <Trending />
                                 }
                             </div>
-                        ) : (<p>no existe ese valor</p>)//falta agreagar hacer un componente cuando no hay ningun resulatado
-                        :
-                        <div className='home-content'>
-                            {
-                                (!ruta) && <Trending />
-                            }
         
                             <DataContainer />
         

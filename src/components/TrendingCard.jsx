@@ -1,8 +1,26 @@
+import { useState } from "react"
+import { FiBookmark } from 'react-icons/fi'
+import { useDispatch } from "react-redux"
+import { bookmarkAdd } from "../redux/actions/DataActions"
+
 const TrendingCard = ({props}) => {
-    const {title, thumbnail, year, rating, category } = props
+    const {title, thumbnail, year, rating, category, isBookmarked } = props
+    const [bookmark, setBookmark] = useState(isBookmarked)
+    const dispatch = useDispatch()
+    
+    const bookmarkButton = () => {
+        setBookmark(!bookmark)
+        dispatch(bookmarkAdd(title, bookmark))
+    }
     return (
         <div className="card-trending-content">
-            <img src={thumbnail.trending.large} alt="movie" />
+            <div className="play-container">
+                <div className="play">
+                    <span className="icon-icon-play" />
+                    <p>Play</p>
+                </div>
+                <img src={thumbnail.trending.large} alt="movie" />
+            </div>
             <div className='text-trending-content'>
                 <p className='footer-trending-one'>
                     {year}
@@ -12,6 +30,11 @@ const TrendingCard = ({props}) => {
                     {rating}
                 </p>
                 <p className='footer-trending-two'>{title}</p>
+            </div>
+            <div onClick={bookmarkButton} className='btnBookmark'>
+                {
+                    (isBookmarked === false) ? <FiBookmark className="icon-icon-bookmark-empty" /> : <span className="icon-icon-bookmark-full" />
+                }
             </div>
         </div>
     )
