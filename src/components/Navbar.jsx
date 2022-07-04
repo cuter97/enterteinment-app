@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logoutAuth } from '../redux/actions/AuthActions';
 import { useNavigate } from 'react-router-dom'
 
+import { RiLogoutBoxRFill } from 'react-icons/ri'
+
 const Navbar = () => {
     const user = useSelector(store => store.user.currentUser)
     const navigate = useNavigate()
@@ -51,8 +53,11 @@ const Navbar = () => {
             <div className='avatar-container' onClick={handleToggler}>
                 <img className='avatar' src={Avatar} alt="" />
                 <div className={toggle === true ? 'list active' : 'list'}>
-                    <p>Profile</p>
-                    <button onClick={handleOut}>Logout</button>
+                    {/* <p>Profile</p> */}
+                    <div className='icon' onClick={handleOut}>
+                        <RiLogoutBoxRFill className='exit'/>
+                        <p>Logout</p>
+                    </div>
                 </div>
             </div>
         </div>

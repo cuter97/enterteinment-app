@@ -26,6 +26,7 @@
     .avatar-container{
         text-align: center;
         margin: 400px 0;
+        cursor: pointer;
 
         .avatar{
             width: 40px;
@@ -33,18 +34,49 @@
             border: 1px solid #FFFFFF;
             border-radius: 100%;
         }
-
+        
         .list{
             display: none;
         }
         .active{
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: absolute;
-            left: 100px;
-            background-color: #FFFFFF;
-            width: 100px;
+            border-radius: 6px;
+            left: 25px;
+            background-color: #ffffff17;
+            width: 50px;
             height: 80px;
-            top: 750px;
+            top: 650px;
+            animation: move 0.5s;
+        }
+
+        .icon{
+            color: #5a698f;
+            font-size: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 19px;
+        }
+        .exit{
+            color: #5a698f;
+            font-size: 25px;
+            &:hover{
+                color: #fff
+            }
         }
     }
+}
+@keyframes move{
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+        top: -200px;
+      }
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      } 
 }
